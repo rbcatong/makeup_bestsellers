@@ -4,8 +4,8 @@ require 'pry'
 
 class Scraper
 
-#create a category for each link - makeupbestsellers, skincare best sellers. 
-#then assign a number for each one so that tehy can choose. 
+#create a category for each link - makeupbestsellers, skincare best sellers.
+#then assign a number for each one so that tehy can choose.
   def list_of_categories
     list_of_categories = []
     page = Nokogiri::HTML(open("https://www.sephora.com/beauty-best-sellers?mediaId=14300062"))
