@@ -14,5 +14,8 @@ class Bestsellers::CLI
   end
   
   def list_details
+  
   end
 end
+
+
