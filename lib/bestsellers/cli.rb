@@ -1,7 +1,7 @@
 class Bestsellers::CLI
   attr_accessor :name, :price, :description
   
-  def call
+  def start
     puts "Welcome to Sephora"
     puts "Would you like to take a look at today's bestsellers?(Y/N)"
     input = gets.strip
@@ -13,8 +13,10 @@ class Bestsellers::CLI
     end
   end
   
-  def list_details
-  
+  def list_product_categories
+    puts "Which category would you like to see?"
+    #grabs the method from scraper
+    
   end
 end
 
