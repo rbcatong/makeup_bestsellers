@@ -11,8 +11,8 @@ class Scraper
     page = Nokogiri::HTML(open("https://www.sephora.com/beauty-best-sellers?mediaId=14300062"))
       page.css(".SideNav-link").each do |category|
         list_of_categories << category.text.strip
-        binding.pry
       end
+    #create strings from array...
   end
 
     # def product_name
