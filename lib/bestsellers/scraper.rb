@@ -25,4 +25,4 @@ class Scraper
 
 end
 
-Scraper.new().list_of_categories
+#Scraper.new().list_of_categories

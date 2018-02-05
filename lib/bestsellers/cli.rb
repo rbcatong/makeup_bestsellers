@@ -4,21 +4,24 @@ class Bestsellers::CLI
 
   def start
     puts "Welcome to Sephora"
-    puts "Would you like to take a look at today's bestsellers?(Y/N)"
+    opening_question
+  end
+
+  def opening_question
+    puts "Would you like to take a look at today's bestsellers?"
+    puts "1 -- See today's bestsellers"
+    puts "2 -- Exit"
     input = gets.strip
     case(input)
-    when "Y"
+    when "1"
       list_product_categories
-    when "N"
+    when "2"
       puts "Thank you for visiting, see you again soon!"
-      # #while input != "N"
-      #   puts "Would you like to take a look at today's bestsellers?"
-      # case(input)
-      #     when "Y"
-      #       list_product_categories
-      #     end
-      #       puts "Thank you for visiting, see you again soon!"
-      # end
+      exit
+    else
+      puts "Please try again."
+      opening_question
+    end
   end
 
   def list_product_categories
