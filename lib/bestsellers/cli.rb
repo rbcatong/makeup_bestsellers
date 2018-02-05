@@ -36,5 +36,8 @@ class Bestsellers::CLI
     #scraper.list_of_categories
   end
 
+  def show_product_info
+  end
+
 
 end
