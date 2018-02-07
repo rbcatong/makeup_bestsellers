@@ -3,13 +3,13 @@ class Bestsellers::CLI
   #@scraper = Scraper.new
 
   def start
-    puts "Welcome to Sephora"
+    puts "Welcome to Ulta"
     opening_question
   end
 
   def opening_question
-    puts "Would you like to take a look at today's bestsellers?"
-    puts "1 -- See today's bestsellers"
+    puts "Would you like to take a look at Allure's Best of Beauty?"
+    puts "1 -- See Allure's Best of Beauty"
     puts "2 -- Exit"
     input = gets.strip
     case(input)
