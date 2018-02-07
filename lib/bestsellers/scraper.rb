@@ -25,7 +25,6 @@ class Scraper
     skincare = []
     page = Nokogiri::HTML(open("https://www.ulta.com/skin-care-allure-best-of-beauty?N=yrcmiw"))
     page.css(".prod-desc").each do |item|
-      binding.pry
       skincare << item.text.strip
     end
   end
