@@ -13,11 +13,16 @@ class Scraper
   #   #create strings from array...
   # end
 
-  def makeup_product_name
+  def makeup_product
     makeup = []
     page = Nokogiri::HTML(open("https://www.ulta.com/makeup-allure-best-of-beauty?N=1g7h4q6"))
-    page.css(".prod-desc").each do |item|
-      makeup << item.text.strip
+    page.css(".productQvContainer").each do |item|
+      brand_name = item.css(".prod-title").text.strip
+      name_desc = item.css(".prod-desc").text.strip 
+      price = item.css(".productPrice").text.strip
+      binding.pry
+
+    #  makeup <<
     end
   end #do a list of hashes with price, makeup brand decscription.. if they want to know more we can give link.
 
@@ -30,4 +35,4 @@ class Scraper
   end
 end
 
-Scraper.new().skincare_product_name
+Scraper.new().makeup_product
