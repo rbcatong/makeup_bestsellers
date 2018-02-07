@@ -29,8 +29,11 @@ class Scraper
   def skincare_product_name
     skincare = []
     page = Nokogiri::HTML(open("https://www.ulta.com/skin-care-allure-best-of-beauty?N=yrcmiw"))
-    page.css(".prod-desc").each do |item|
-      skincare << item.text.strip
+    page.css(".productQvContainer").each do |item|
+      brand_name = item.css(".prod-title").text.strip
+      name_desc = item.css(".prod-desc").text.strip 
+      price = item.css(".productPrice").text.strip
+      #skincare 
     end
   end
 end
