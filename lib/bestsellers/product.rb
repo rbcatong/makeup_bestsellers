@@ -1,0 +1,8 @@
+class Bestsellers::Product
+
+
+
+
+
+
+end

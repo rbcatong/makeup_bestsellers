@@ -1,3 +1,10 @@
-require_relative "./bestsellers/version"
-require_relative './bestsellers/cli.rb'
-require_relative './bestsellers/scraper.rb'
+# require_relative "./bestsellers/version"
+ require_relative './bestsellers/cli.rb'
+# require_relative './bestsellers/scraper.rb'
+
+module Bestsellers
+end
+
+
+
+#require_relative '../config/environment'

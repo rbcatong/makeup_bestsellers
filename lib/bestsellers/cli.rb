@@ -33,13 +33,13 @@ class Bestsellers::CLI
     input = gets.strip
     case(input)
     when "1"
-      show_product_info
+      show_makeup_info
     when "2"
       puts "cool"
     when "3"
       puts "Goodbye."
       exit
-    else 
+    else
       puts "Please try again."
       list_product_categories
     end
@@ -48,8 +48,9 @@ class Bestsellers::CLI
     #scraper.list_of_categories
   end
 
-  def show_product_info
-    puts "nicejob"
+  def show_makeup_info
+    scraper = Scraper.new
+    scraper.makeup_product
   end
 
 
