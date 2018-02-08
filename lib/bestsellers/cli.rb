@@ -1,7 +1,4 @@
-require 'pry'
 class Bestsellers::CLI
-
-  #@scraper = Scraper.new
 
   def start
     puts "Welcome to Ulta"
