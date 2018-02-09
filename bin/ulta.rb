@@ -1,3 +1,4 @@
 require_relative '../lib/bestsellers'
 
-Bestsellers::CLI.new.call
+# Bestsellers::CLI.new.call
+Bestsellers::Makeup.scrape_top_makeup
