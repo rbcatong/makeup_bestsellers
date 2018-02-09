@@ -32,18 +32,17 @@ class Bestsellers::Product
       makeup.price = item.search(".productPrice").text.strip
     end
     makeup
-    binding.pry
   end
 
-  def kincare_product_name
-    skincare = []
-    page = Nokogiri::HTML(open("https://www.ulta.com/skin-care-allure-best-of-beauty?N=yrcmiw"))
-    page.css(".productQvContainer").each do |item|
-      brand_name = item.css(".prod-title").text.strip
-      name_desc = item.css(".prod-desc").text.strip
-      price = item.css(".productPrice").text.strip
-      #skincare
+  def self.scrape_top_skincare
+    skincare = self.new
+    doc = Nokogiri::HTML(open("https://www.ulta.com/skin-care-allure-best-of-beauty?N=yrcmiw"))
+    doc.css(".productQvContainer").each do |item|
+      skincare.name = item.search(".prod-title").text.strip
+      skincare.description = item.search(".prod-desc").text.strip
+      skincare.price = item.search(".productPrice").text.strip
     end
+    skincare
   end
 
 
