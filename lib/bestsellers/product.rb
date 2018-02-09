@@ -24,28 +24,27 @@ class Bestsellers::Product
   end
 
   def self.scrape_top_makeup
-    doc = Nokogiri::HTML(open("https://www.ulta.com/makeup-allure-best-of-beauty?N=1g7h4q6"))
     makeup = self.new
-    # page.css(".productQvContainer").each do |item|
-      makeup.name = doc.search(".prod-title").text.strip
-      makeup.description = doc.search(".prod-desc").text.strip
-      makeup.price = doc.search(".productPrice").text.strip
-      binding.pry
+    doc = Nokogiri::HTML(open("https://www.ulta.com/makeup-allure-best-of-beauty?N=1g7h4q6"))
+    doc.css(".productQvContainer").each do |item|
+      makeup.name = item.search(".prod-title").text.strip
+      makeup.description = item.search(".prod-desc").text.strip
+      makeup.price = item.search(".productPrice").text.strip
+    end
     makeup
+    binding.pry
   end
 
- #do a list of hashes with price, makeup brand decscription.. if they want to know more we can give link.
-
-  # def skincare_product_name
-  #   skincare = []
-  #   page = Nokogiri::HTML(open("https://www.ulta.com/skin-care-allure-best-of-beauty?N=yrcmiw"))
-  #   page.css(".productQvContainer").each do |item|
-  #     brand_name = item.css(".prod-title").text.strip
-  #     name_desc = item.css(".prod-desc").text.strip
-  #     price = item.css(".productPrice").text.strip
-  #     #skincare
-  #   end
-  # end
+  def kincare_product_name
+    skincare = []
+    page = Nokogiri::HTML(open("https://www.ulta.com/skin-care-allure-best-of-beauty?N=yrcmiw"))
+    page.css(".productQvContainer").each do |item|
+      brand_name = item.css(".prod-title").text.strip
+      name_desc = item.css(".prod-desc").text.strip
+      price = item.css(".productPrice").text.strip
+      #skincare
+    end
+  end
 
 
 
