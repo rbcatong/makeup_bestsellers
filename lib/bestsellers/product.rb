@@ -21,6 +21,8 @@ class Bestsellers::Product
   end
 
   def self.scrape_top_skincare
+    skincare_bestsellers = []
+    skincare_bestsellers << self.scrape_top_skincare
   end
 
   def self.scrape_top_makeup
@@ -43,6 +45,5 @@ class Bestsellers::Product
       skincare.price = item.search(".productPrice").text.strip
     end
     skincare
-    binding.pry
     end
 end

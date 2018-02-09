@@ -48,8 +48,10 @@ class Bestsellers::CLI
   def show_makeup_info
     # scraper = Scraper.new
     # scraper.makeup_product
-    Bestsellers::Product.all.each.with_index(1) do |item, i|
-      puts "#{i}. #{item.name}"
+    Bestsellers::Product.makeup.each.with_index(1) do |item, i|
+      puts "#{i}. Name: #{item.name}
+      Description: #{item.description}
+      Price: #{item.price} "
     end
     puts ""
   end
