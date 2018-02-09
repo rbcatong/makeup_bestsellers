@@ -32,7 +32,7 @@ class Bestsellers::CLI
     when "1"
       show_makeup_info
     when "2"
-      puts "cool"
+      show_skincare_info
     when "3"
       puts "Goodbye."
       exit
@@ -40,9 +40,6 @@ class Bestsellers::CLI
       puts "Please try again."
       list_product_categories
     end
-    #grabs the method from scraper
-    #scraper = Scraper.new
-    #scraper.list_of_categories
   end
 
   def show_makeup_info
@@ -52,6 +49,15 @@ class Bestsellers::CLI
       puts "#{i}. Name: #{item.name}
       Description: #{item.description}
       Price: #{item.price} "
+    end
+    puts ""
+  end
+
+  def show_skincare_info
+    Bestsellers::Product.skincare.each.with_index(1) do |item, i|
+      puts "#{i}. Name: #{item.name}
+            Description: #{item.description}
+            Price: #{item.price} "
     end
     puts ""
   end

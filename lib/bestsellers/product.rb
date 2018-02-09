@@ -9,6 +9,11 @@ class Bestsellers::Product
     self.scrape_skincare
   end
 
+  # def self.all
+  #   @@all_makeup_bestsellers = []
+  #   @@all_makeup_bestsellers << self.scrape_top_makeup
+  # end
+
 
   def self.scrape_skincare
     skincare_bestsellers = []
@@ -33,7 +38,7 @@ class Bestsellers::Product
       makeup.description = item.search(".prod-desc").text.strip
       makeup.price = item.search(".productPrice").text.strip
     end
-    makeup
+   makeup
   end
 
   def self.scrape_top_skincare
