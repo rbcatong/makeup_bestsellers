@@ -24,12 +24,12 @@ class Bestsellers::Product
   end
 
   def self.scrape_top_makeup
-    page = Nokogiri::HTML(open("https://www.ulta.com/makeup-allure-best-of-beauty?N=1g7h4q6"))
+    doc = Nokogiri::HTML(open("https://www.ulta.com/makeup-allure-best-of-beauty?N=1g7h4q6"))
     makeup = self.new
     # page.css(".productQvContainer").each do |item|
-      makeup.name = page.search(".prod-title").text.strip
-      makeup.description = item.css(".prod-desc").text.strip
-      makeup.price = item.css(".productPrice").text.strip
+      makeup.name = doc.search(".prod-title").text.strip
+      makeup.description = doc.search(".prod-desc").text.strip
+      makeup.price = doc.search(".productPrice").text.strip
       binding.pry
     makeup
   end
