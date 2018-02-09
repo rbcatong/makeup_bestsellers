@@ -1,11 +1,11 @@
 class Bestsellers::CLI
 
-  def start
-    puts "Welcome to Ulta"
+  def call
     opening_question
   end
 
   def opening_question
+    puts "Welcome to Ulta"
     puts "Would you like to take a look at Allure's Best of Beauty?"
     puts "1 -- See Allure's Best of Beauty"
     puts "2 -- Exit"
@@ -46,8 +46,12 @@ class Bestsellers::CLI
   end
 
   def show_makeup_info
-    scraper = Scraper.new
-    scraper.makeup_product
+    # scraper = Scraper.new
+    # scraper.makeup_product
+    Bestsellers::Product.all.each.with_index(1) do |item, i|
+      puts "#{i}. #{item.name}"
+    end
+    puts ""
   end
 
 
