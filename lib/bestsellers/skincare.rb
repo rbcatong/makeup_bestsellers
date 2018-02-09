@@ -20,7 +20,6 @@ class Bestsellers::Skincare
       skincare.description = item.search(".prod-desc").text.strip
       skincare.price = item.search(".productPrice").text.strip
     end
-    skincare_bestsellers << skincare
-    binding.pry
+  skincare
     end
 end

@@ -1,7 +1,6 @@
 class Bestsellers::Makeup
   attr_accessor :name, :description, :price, :url
 
-
   def self.makeup
     self.scrape_top_makeup
   end
@@ -20,9 +19,12 @@ class Bestsellers::Makeup
       makeup.description = item.search(".prod-desc").text.strip
       makeup.price = item.search(".productPrice").text.strip
     end
-   makeup
+   makeup.each do|category, answer|
+     puts "#{category}: #{answer}"
     binding.pry
   end
+  makeup
+end
 
 
 end
