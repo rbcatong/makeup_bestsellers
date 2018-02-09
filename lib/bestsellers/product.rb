@@ -43,11 +43,6 @@ class Bestsellers::Product
       skincare.price = item.search(".productPrice").text.strip
     end
     skincare
-  end
-
-
-
-
-
-
+    binding.pry
+    end
 end
