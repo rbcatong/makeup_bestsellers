@@ -57,8 +57,8 @@ class Bestsellers::CLI
     collection_of_makeup = Bestsellers::Scraper.scrape_top_makeup
       if input.to_i <= collection_of_makeup.length
         puts "Url: https://www.ulta.com/#{collection_of_makeup[input.to_i-1].url}"
-      else
-        puts "Goodbye"
+      elsif
+        show_makeup_info
       end
     end
 
@@ -77,8 +77,8 @@ class Bestsellers::CLI
       collection_of_skincare = Bestsellers::Scraper.scrape_top_skincare
         if input.to_i <= collection_of_skincare.length
           puts "Url: https://www.ulta.com/#{collection_of_skincare[input.to_i-1].url}"
-        else
-          puts "Goodbye"
+        elsif
+          show_skincare_info
         end
     end
 
