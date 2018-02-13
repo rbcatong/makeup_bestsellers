@@ -44,16 +44,10 @@ class Bestsellers::CLI
   end
 
   def show_makeup_info
-    input = gets.strip
     Bestsellers::Scraper.scrape_top_makeup.each.with_index(1) do |item, i|
       puts "#{i}. Name: #{item.name}
       Description: #{item.description}
       Price: #{item.price} "
-
-      #get the list of top makeup, use the input
-      # case(input)
-      # when i = (0..36)
-      #   puts "Link: #{item.url}"
     end
     display_url
   end
@@ -61,14 +55,14 @@ class Bestsellers::CLI
 
   def display_url
     input = gets.strip
-    Bestsellers::Scraper.scrape_top_makeup.each.with_index(1) do |item, i|
-      if input == item[i]
-        puts "Url: https://www.ulta.com/#{item.url}"
+    collection_of_makeup = Bestsellers::Scraper.scrape_top_makeup
+      if input.to_i <= collection_of_makeup.length
+        puts "Url: https://www.ulta.com/#{collection_of_makeup[input.to_i-1].url}"
       else
         puts "Goodbye"
       end
     end
-    
+
     def show_skincare_info
       Bestsellers::Skincare.skincare.each.with_index(1) do |item, i|
         puts "#{i}. Name: #{item.name}
