@@ -30,6 +30,7 @@ class Bestsellers::CLI
     input = gets.strip
     case(input)
     when "1"
+      puts "Press a number if you'd like more information."
       show_makeup_info
     when "2"
       show_skincare_info
@@ -43,24 +44,39 @@ class Bestsellers::CLI
   end
 
   def show_makeup_info
-    # scraper = Scraper.new
-    # scraper.makeup_product
-    Bestsellers::Makeup.makeup.each.with_index(1) do |item, i|
+    input = gets.strip
+    Bestsellers::Scraper.scrape_top_makeup.each.with_index(1) do |item, i|
       puts "#{i}. Name: #{item.name}
       Description: #{item.description}
       Price: #{item.price} "
-    end
-    puts ""
-  end
 
-  def show_skincare_info
-    Bestsellers::Skincare.skincare.each.with_index(1) do |item, i|
-      puts "#{i}. Name: #{item.name}
-            Description: #{item.description}
-            Price: #{item.price} "
+      #get the list of top makeup, use the input
+      # case(input)
+      # when i = (0..36)
+      #   puts "Link: #{item.url}"
     end
-    puts ""
+    display_url
   end
 
 
-end
+  def display_url
+    input = gets.strip
+    Bestsellers::Scraper.scrape_top_makeup.each.with_index(1) do |item, i|
+      if input == item[i]
+        puts "Url: https://www.ulta.com/#{item.url}"
+      else
+        puts "Goodbye"
+      end
+    end
+    
+    def show_skincare_info
+      Bestsellers::Skincare.skincare.each.with_index(1) do |item, i|
+        puts "#{i}. Name: #{item.name}
+        Description: #{item.description}
+        Price: #{item.price} "
+      end
+      puts ""
+    end
+
+
+  end
