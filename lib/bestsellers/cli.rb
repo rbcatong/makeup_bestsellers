@@ -24,13 +24,12 @@ class Bestsellers::CLI
 
   def list_product_categories
     puts "Which category would you like to see? Type the number of the category that you'd like to see or 3 to exit out."
-    puts "1) Makeup"
-    puts "2) Skincare"
+    puts "1) Makeup -- Press a number if you'd like more information"
+    puts "2) Skincare -- Press a number if you'd like more information"
     puts "3) Exit"
     input = gets.strip
     case(input)
     when "1"
-      puts "Press a number if you'd like more information"
       show_makeup_info
     when "2"
       show_skincare_info
@@ -49,11 +48,11 @@ class Bestsellers::CLI
       Description: #{item.description}
       Price: #{item.price} "
     end
-    display_url
+    display_makeup_url
   end
 
 
-  def display_url
+  def display_makeup_url
     input = gets.strip
     collection_of_makeup = Bestsellers::Scraper.scrape_top_makeup
       if input.to_i <= collection_of_makeup.length
@@ -65,13 +64,22 @@ class Bestsellers::CLI
 
 
     def show_skincare_info
-      Bestsellers::Scraper.scrape_top_makeup.each.with_index(1) do |item, i|
+      Bestsellers::Scraper.scrape_top_skincare.each.with_index(1) do |item, i|
         puts "#{i}. Name: #{item.name}
         Description: #{item.description}
         Price: #{item.price} "
-
       end
+      display_skincare_url
     end
 
+    def display_skincare_url
+      input = gets.strip
+      collection_of_skincare = Bestsellers::Scraper.scrape_top_skincare
+        if input.to_i <= collection_of_skincare.length
+          puts "Url: https://www.ulta.com/#{collection_of_skincare[input.to_i-1].url}"
+        else
+          puts "Goodbye"
+        end
+    end
 
   end
