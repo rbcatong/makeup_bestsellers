@@ -30,7 +30,7 @@ class Bestsellers::CLI
     input = gets.strip
     case(input)
     when "1"
-      puts "Press a number if you'd like more information."
+      puts "Press a number if you'd like more information"
       show_makeup_info
     when "2"
       show_skincare_info
@@ -63,13 +63,14 @@ class Bestsellers::CLI
       end
     end
 
+
     def show_skincare_info
-      Bestsellers::Skincare.skincare.each.with_index(1) do |item, i|
+      Bestsellers::Scraper.scrape_top_makeup.each.with_index(1) do |item, i|
         puts "#{i}. Name: #{item.name}
         Description: #{item.description}
         Price: #{item.price} "
+
       end
-      puts ""
     end
 
 

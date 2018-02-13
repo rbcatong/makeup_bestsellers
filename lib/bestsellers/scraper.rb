@@ -18,5 +18,19 @@ class Bestsellers::Scraper
     makeup_collection
   end
 
+  def self.scrape_top_skincare
+    skincare_bestsellers = []
+    doc = Nokogiri::HTML(open("https://www.ulta.com/skin-care-allure-best-of-beauty?N=yrcmiw"))
+    doc.css(".productQvContainer").each do |item|
+      skincare_name = item.search(".prod-title").text.strip
+      skincare_description = item.search(".prod-desc").text.strip
+      skincare_price = item.search(".productPrice").text.strip
+      skincare_url = item.css("a").attr("href").value
+      skin_product = Bestsellers::Makeup.new(skincare_name, skincare_description, skincare_price, skincare_url)
+    end
+  skincare_bestsellers
+    end
+end
+
 
 end
