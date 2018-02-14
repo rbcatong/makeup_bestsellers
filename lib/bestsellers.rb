@@ -1,4 +1,6 @@
-require 'pry'
+module Bestsellers
+
+end
 
 require_relative './bestsellers/version'
 require_relative './bestsellers/makeup.rb'
