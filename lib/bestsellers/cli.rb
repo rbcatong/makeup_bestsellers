@@ -32,7 +32,7 @@ class Bestsellers::CLI
     when "1"
       makeup_menu
     when "2"
-      show_skincare_info
+      skincare_menu
     when "3"
       puts "Goodbye."
       exit
@@ -61,16 +61,16 @@ class Bestsellers::CLI
       exit
     else puts "Please try again."
       makeup_menu
+    end
   end
-end
 
   def makeup_menu
     puts "What item would you like to see? Type in the number that you would like to see."
     show_makeup_info
     input = gets.strip
     case(input)
-      when "Main Menu"
-    list_product_categories
+    when "Main Menu"
+      list_product_categories
     when "Exit"
       puts "Goodbye"
       exit
@@ -86,6 +86,7 @@ end
     if input.to_i <= collection_of_makeup.length
       puts "Url: https://www.ulta.com/#{collection_of_makeup[input.to_i-1].url}"
     elsif
+      puts "Please try again"
       show_makeup_info
     end
   end
@@ -98,6 +99,34 @@ end
       Price: #{item.price} "
     end
     display_skincare_url
+    puts "Would you like to see the skincare list again? Type Skincare to see the skincare menu or Main Menu to see menu or Exit to exit."
+    input = gets.strip
+    case(input)
+    when "Skincare"
+      show_skincare_info
+    when "Main Menu"
+      list_product_categories
+    when "Exit"
+      puts "Goodbye"
+      exit
+    else puts "Please try again."
+      skincare_menu
+    end
+  end
+
+  def skincare_menu
+    puts "What item would you like to see? Type in the number that you would like to see."
+    show_skincare_info
+    input = gets.strip
+    case(input)
+    when "Main Menu"
+      list_product_categories
+    when "Exit"
+      puts "Goodbye"
+      exit
+    else puts "Please try again."
+      skincare_menu
+    end
   end
 
   def display_skincare_url
@@ -106,7 +135,8 @@ end
     if input.to_i <= collection_of_skincare.length
       puts "Url: https://www.ulta.com/#{collection_of_skincare[input.to_i-1].url}"
     elsif
-      show_skincare_info
+      puts "Please try again."
+      skincare_menu
     end
   end
 
