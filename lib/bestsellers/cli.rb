@@ -94,7 +94,7 @@ class Bestsellers::CLI
       puts "Goodbye"
       exit
     else puts "Please try again."
-      skincare_info
+      show_skincare_info
     end
   end
 
@@ -105,7 +105,7 @@ class Bestsellers::CLI
       puts "Url: https://www.ulta.com/#{collection_of_skincare[input.to_i-1].url}"
     elsif
       puts "Please try again."
-      skincare_menu
+      show_skincare_info
     end
   end
 
