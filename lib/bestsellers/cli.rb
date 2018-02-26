@@ -30,9 +30,9 @@ class Bestsellers::CLI
     input = gets.strip
     case(input)
     when "1"
-      makeup_menu
+      show_makeup_info
     when "2"
-      skincare_menu
+      show_skincare_info
     when "3"
       puts "Goodbye."
       exit
@@ -49,36 +49,20 @@ class Bestsellers::CLI
       Price: #{item.price} "
     end
     display_makeup_url
-    puts "Would you like to see the makeup list again? Type Makeup to see the makeup menu or Main Menu to see menu or Exit to exit."
+    puts "Would you like to see the makeup list again? Type 1 to see the makeup menu or 2 to see main menu or 3 to exit."
     input = gets.strip
     case(input)
-    when "Makeup"
+    when "1"
       show_makeup_info
-    when "Main Menu"
+    when "2"
       list_product_categories
-    when "Exit"
+    when "3"
       puts "Goodbye"
       exit
     else puts "Please try again."
-      makeup_menu
+      show_makeup_info
     end
   end
-
-  def makeup_menu
-    puts "What item would you like to see? Type in the number that you would like to see."
-    show_makeup_info
-    input = gets.strip
-    case(input)
-    when "Main Menu"
-      list_product_categories
-    when "Exit"
-      puts "Goodbye"
-      exit
-    else puts "Please try again."
-      makeup_menu
-    end
-  end
-
 
   def display_makeup_url
     input = gets.strip
@@ -99,33 +83,18 @@ class Bestsellers::CLI
       Price: #{item.price} "
     end
     display_skincare_url
-    puts "Would you like to see the skincare list again? Type Skincare to see the skincare menu or Main Menu to see menu or Exit to exit."
+    puts "Would you like to see the skincare list again? Type 1 to see the skincare menu or 2 to see menu or 3 to exit."
     input = gets.strip
     case(input)
-    when "Skincare"
+    when "1"
       show_skincare_info
-    when "Main Menu"
+    when "2"
       list_product_categories
-    when "Exit"
+    when "3"
       puts "Goodbye"
       exit
     else puts "Please try again."
-      skincare_menu
-    end
-  end
-
-  def skincare_menu
-    puts "What item would you like to see? Type in the number that you would like to see."
-    show_skincare_info
-    input = gets.strip
-    case(input)
-    when "Main Menu"
-      list_product_categories
-    when "Exit"
-      puts "Goodbye"
-      exit
-    else puts "Please try again."
-      skincare_menu
+      skincare_info
     end
   end
 
