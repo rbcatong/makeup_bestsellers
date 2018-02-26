@@ -31,7 +31,6 @@ class Bestsellers::CLI
     case(input)
     when "1"
       makeup_menu
-      show_makeup_info
     when "2"
       show_skincare_info
     when "3"
@@ -50,14 +49,28 @@ class Bestsellers::CLI
       Price: #{item.price} "
     end
     display_makeup_url
+    puts "Would you like to see the makeup list again? Type Makeup to see the makeup menu or Main Menu to see menu or Exit to exit."
+    input = gets.strip
+    case(input)
+    when "Makeup"
+      show_makeup_info
+    when "Main Menu"
+      list_product_categories
+    when "Exit"
+      puts "Goodbye"
+      exit
+    else puts "Please try again."
+      makeup_menu
   end
+end
 
   def makeup_menu
     puts "What item would you like to see? Type in the number that you would like to see."
+    show_makeup_info
     input = gets.strip
     case(input)
-    when "Main Menu"
-      list_product_categories
+      when "Main Menu"
+    list_product_categories
     when "Exit"
       puts "Goodbye"
       exit
