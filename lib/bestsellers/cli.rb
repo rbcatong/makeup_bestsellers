@@ -46,7 +46,7 @@ class Bestsellers::CLI
     Bestsellers::Scraper.scrape_top_makeup.each.with_index(1) do |item, i|
       puts "#{i}. Name: #{item.name}
       Description: #{item.description}
-      Price: #{item.price} "
+      #{item.price}"
     end
     display_makeup_url
     puts "Would you like to see the makeup list again? Type 1 to see the makeup menu or 2 to see main menu or 3 to exit."
@@ -80,7 +80,7 @@ class Bestsellers::CLI
     Bestsellers::Scraper.scrape_top_skincare.each.with_index(1) do |item, i|
       puts "#{i}. Name: #{item.name}
       Description: #{item.description}
-      Price: #{item.price} "
+      #{item.price}"
     end
     display_skincare_url
     puts "Would you like to see the skincare list again? Type 1 to see the skincare menu or 2 to see menu or 3 to exit."
