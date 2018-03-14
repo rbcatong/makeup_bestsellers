@@ -30,8 +30,10 @@ class Bestsellers::CLI
     input = gets.strip
     case(input)
     when "1"
+      puts "Please type the number of the product in which you would like more info on."
       show_makeup_info
     when "2"
+      puts "Please type the number of the product in which you would like more info on."
       show_skincare_info
     when "3"
       puts "Goodbye."
