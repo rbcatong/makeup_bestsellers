@@ -69,7 +69,7 @@ class Bestsellers::CLI
   def display_makeup_url
     input = gets.strip.to_i
     collection_of_makeup = Bestsellers::Scraper.scrape_top_makeup
-    if input <= collection_of_makeup.length
+    if input <= collection_of_makeup.length && input != 0
       puts "Url: https://www.ulta.com/#{collection_of_makeup[input-1].url}"
     else
       puts "Please try again"
@@ -102,7 +102,7 @@ class Bestsellers::CLI
   def display_skincare_url
     input = gets.strip.to_i
     collection_of_skincare = Bestsellers::Scraper.scrape_top_skincare
-    if input <= collection_of_skincare.length
+    if input <= collection_of_skincare.length && input != 0
       puts "Url: https://www.ulta.com/#{collection_of_skincare[input-1].url}"
     else
       puts "Please try again."
