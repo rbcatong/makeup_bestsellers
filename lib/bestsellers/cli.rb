@@ -10,10 +10,9 @@ class Bestsellers::CLI
     puts "1 -- See Allure's Best of Beauty"
     puts "2 -- Exit"
     input = gets.strip
-    case(input)
-    when "1"
+    if input == "1"
       list_product_categories
-    when "2"
+    elsif input == "2"
       puts "Thank you for visiting, see you again soon!"
       exit
     else
@@ -28,14 +27,13 @@ class Bestsellers::CLI
     puts "2) Skincare"
     puts "3) Exit"
     input = gets.strip
-    case(input)
-    when "1"
+    if input == "1"
       puts "Please type the number of the product in which you would like more info on."
       show_makeup_info
-    when "2"
+    elsif input == "2"
       puts "Please type the number of the product in which you would like more info on."
       show_skincare_info
-    when "3"
+    elsif input == "3"
       puts "Goodbye."
       exit
     else
@@ -43,6 +41,9 @@ class Bestsellers::CLI
       list_product_categories
     end
   end
+
+
+
 
   def show_makeup_info
     Bestsellers::Scraper.scrape_top_makeup.each.with_index(1) do |item, i|
@@ -53,12 +54,11 @@ class Bestsellers::CLI
     display_makeup_url
     puts "Would you like to see the makeup list again? Type 1 to see the makeup menu or 2 to see main menu or 3 to exit."
     input = gets.strip
-    case(input)
-    when "1"
+    if input == "1"
       show_makeup_info
-    when "2"
+    elsif input == "2"
       list_product_categories
-    when "3"
+    elsif input == "3"
       puts "Goodbye"
       exit
     else puts "Please try again."
@@ -87,12 +87,11 @@ class Bestsellers::CLI
     display_skincare_url
     puts "Would you like to see the skincare list again? Type 1 to see the skincare menu or 2 to see menu or 3 to exit."
     input = gets.strip
-    case(input)
-    when "1"
+    if input == "1"
       show_skincare_info
-    when "2"
+    elsif input == "2"
       list_product_categories
-    when "3"
+    elsif input == "3"
       puts "Goodbye"
       exit
     else puts "Please try again."
