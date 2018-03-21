@@ -28,10 +28,8 @@ class Bestsellers::CLI
     puts "3) Exit"
     input = gets.strip
     if input == "1"
-      puts "Please type the number of the product in which you would like more info on."
       show_makeup_info
     elsif input == "2"
-      puts "Please type the number of the product in which you would like more info on."
       show_skincare_info
     elsif input == "3"
       puts "Goodbye."
@@ -51,6 +49,7 @@ class Bestsellers::CLI
       Description: #{item.description}
       #{item.price}"
     end
+      puts "Please type the number of the product in which you would like more info on."
     display_makeup_url
     puts "Would you like to see the makeup list again? Type 1 to see the makeup menu or 2 to see main menu or 3 to exit."
     input = gets.strip
@@ -84,6 +83,7 @@ class Bestsellers::CLI
       Description: #{item.description}
       #{item.price}"
     end
+    puts "Please type the number of the product in which you would like more info on."
     display_skincare_url
     puts "Would you like to see the skincare list again? Type 1 to see the skincare menu or 2 to see menu or 3 to exit."
     input = gets.strip
